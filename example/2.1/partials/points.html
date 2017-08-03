@@ -2,7 +2,7 @@
     <p>HTML:</p>
     <pre class="html" ng-non-bindable>
 &lt;ya-map ya-zoom="10" ya-center="[37.64,55.76]"&gt;
-    &lt;ya-geo-object ya-source="geoObjects[0]" ya-options="{preset:'islands#blackStretchyIcon',draggable:true}"&gt;&lt;/ya-geo-object&gt;
+    &lt;ya-geo-object ya-source="geoObjects[0].source" ya-options="geoObjects[0].options"&gt;&lt;/ya-geo-object&gt;
     &lt;ya-geo-object ya-source="geoObjects[1]" ya-options="{preset: 'islands#icon',iconColor: '#0095b6'}"&gt;&lt;/ya-geo-object&gt;
     &lt;ya-geo-object ya-source="geoObjects[2]" ya-options="{preset: 'islands#dotIcon',iconColor: '#735184'}"&gt;&lt;/ya-geo-object&gt;
     &lt;ya-geo-object ya-source="geoObjects[3]" ya-options="{preset: 'islands#circleIcon',iconColor: '#3caa3c'}"&gt;&lt;/ya-geo-object&gt;
@@ -149,18 +149,19 @@ $scope.geoObjects=[
         }
     ];</pre>
 </div>
+<button ng-click="cl()">cl</button>
 <div class="right">
     <ya-map ya-zoom="10" ya-center="[37.64,55.76]">
-        <ya-geo-object ya-source="geoObjects[0]" ya-options="{preset:'islands#blackStretchyIcon',draggable:true}"></ya-geo-object>
-        <ya-geo-object ya-source="geoObjects[1]" ya-options="{preset: 'islands#icon',iconColor: '#0095b6'}"></ya-geo-object>
-        <ya-geo-object ya-source="geoObjects[2]" ya-options="{preset: 'islands#dotIcon',iconColor: '#735184'}"></ya-geo-object>
-        <ya-geo-object ya-source="geoObjects[3]" ya-options="{preset: 'islands#circleIcon',iconColor: '#3caa3c'}"></ya-geo-object>
-        <ya-geo-object ya-source="geoObjects[4]" ya-options="{preset: 'islands#circleDotIcon',iconColor: 'yellow'}"></ya-geo-object>
-        <ya-geo-object ya-source="geoObjects[5]" ya-options="{preset: 'islands#icon',iconColor: '#a5260a'}"></ya-geo-object>
-        <ya-geo-object ya-source="geoObjects[6]" ya-options="{preset: 'islands#dotIcon',iconColor: '#3b5998'}"></ya-geo-object>
-        <ya-geo-object ya-source="geoObjects[7]" ya-options="{preset: 'islands#circleIcon',iconColor: '#4d7198'}"></ya-geo-object>
-        <ya-geo-object ya-source="geoObjects[8]" ya-options="{preset: 'islands#circleDotIcon',iconColor: '#1faee9'}"></ya-geo-object>
-        <ya-geo-object ya-source="geoObjects[9]"
+        <ya-geo-object ya-source="geoObjects[0].source" ya-options="geoObjects[0].options"></ya-geo-object>
+        <ya-geo-object ya-source="geoObjects[1].source" ya-options="geoObjects[1].options"></ya-geo-object>
+        <ya-geo-object ya-source="geoObjects[2].source" ya-options="geoObjects[2].options"></ya-geo-object>
+        <ya-geo-object ya-source="geoObjects[3].source" ya-options="geoObjects[3].options"></ya-geo-object>
+        <ya-geo-object ya-source="geoObjects[4].source" ya-options="{preset: 'islands#circleDotIcon',iconColor: 'yellow'}"></ya-geo-object>
+        <ya-geo-object ya-source="geoObjects[5].source" ya-options="{preset: 'islands#icon',iconColor: '#a5260a'}"></ya-geo-object>
+        <ya-geo-object ya-source="geoObjects[6].source" ya-options="{preset: 'islands#dotIcon',iconColor: '#3b5998'}"></ya-geo-object>
+        <ya-geo-object ya-source="geoObjects[7].source" ya-options="{preset: 'islands#circleIcon',iconColor: '#4d7198'}"></ya-geo-object>
+        <ya-geo-object ya-source="geoObjects[8].source" ya-options="{preset: 'islands#circleDotIcon',iconColor: '#1faee9'}"></ya-geo-object>
+        <ya-geo-object ya-source="geoObjects[9].source"
                        ya-options="{iconLayout: 'default#image',iconImageHref:'img/myIcon.gif',iconImageSize:[30, 42],iconImageOffset: [-3, -42]}"></ya-geo-object>
     </ya-map>
 </div>

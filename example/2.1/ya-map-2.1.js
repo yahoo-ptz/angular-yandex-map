@@ -536,12 +536,13 @@ angular.module('yaMap',[]).
             scope:{
                 yaSource:'=',
                 yaShowBalloon:'=',
-                yaAfterInit:'&'
+                yaAfterInit:'&',
+                yaOptions: '=?'
             },
             link:function(scope,elm,attrs,ctrls){
                 var ctrl = ctrls[2] || ctrls[1] || ctrls[0],
                     obj;
-                var options = attrs.yaOptions ? scope.$eval(attrs.yaOptions) : undefined;
+                var options = scope.yaOptions || {};
                 if(options && options.balloonContentLayout){
                     options.balloonContentLayout = templateLayoutFactory.get(options.balloonContentLayout);
                 }
@@ -585,6 +586,10 @@ angular.module('yaMap',[]).
                     }else if(obj){
                         ctrl.removeGeoObjects(obj);
                     }
+                },angular.equals);
+                scope.$watch('yaOptions', function (newValue) {
+                    ctrl.removeGeoObjects(obj);
+                    createGeoObject(scope.yaSource, newValue);
                 },angular.equals);
                 var checkEditing = function(editAttr){
                     if(angular.isDefined(editAttr) && editAttr!=='false'){
