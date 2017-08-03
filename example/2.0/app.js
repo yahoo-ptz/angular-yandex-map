@@ -193,7 +193,7 @@
             console.log(arguments);
         }
     }]);*/
-angular.module('myApp', ['ui.bootstrap','yaMap'], function($routeProvider, $locationProvider) {
+angular.module('myApp', ['ui.bootstrap','yaMap','ngRoute'], function($routeProvider, $locationProvider) {
     $routeProvider.when('/2.0/', {
             templateUrl: '2.0/partials/map-add.html',
             controller: MapAddCtrl

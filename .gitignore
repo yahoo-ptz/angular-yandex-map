@@ -1,3 +1,5 @@
 .idea/
 node_modules/
 example/angular/
+example/angular-route/
+**/.DS_Store

@@ -1,7 +1,7 @@
 /**
  * Created by владелец on 05.11.13.
  */
-angular.module('myApp', ['ui.bootstrap','yaMap'], function($routeProvider, $locationProvider) {
+angular.module('myApp', ['ui.bootstrap','yaMap', 'ngRoute'], function($routeProvider, $locationProvider) {
     $routeProvider.when('/2.1/', {
             templateUrl: '2.1/partials/map-add.html',
             controller: MapAddCtrl
@@ -507,58 +507,73 @@ function OwnMapCtrl($scope, yaLayer, layerStorage,mapTypeStorage,yaMapType){
     };
 }
 
-function PointsCtrl($scope){
+function PointsCtrl($scope) {
+    $scope.cl = function () {
+        $scope.geoObjects[0].options.draggable = !$scope.geoObjects[0].options.draggable;
+    };
     $scope.geoObjects=[
         {
-            geometry: {
-                type: "Point",
-                coordinates: [37.8,55.8]
+            source: {
+                geometry: {
+                    type: "Point",
+                    coordinates: [37.8,55.8]
+                },
+                // Свойства.
+                properties: {
+                    // Контент метки.
+                    iconContent: 'Я тащусь',
+                    hintContent: 'Ну давай уже тащи'
+                }
             },
-            // Свойства.
-            properties: {
-                // Контент метки.
-                iconContent: 'Я тащусь',
-                hintContent: 'Ну давай уже тащи'
-            }
+            options: {preset:'islands#blackStretchyIcon', draggable:true}
         },
         {
-            // Геометрия = тип объекта + географические координаты объекта
-            geometry: {
-                // Тип геометрии - точка
-                type: 'Point',
-                // Координаты точки.
-                coordinates: [37.738521,55.684758]
+            source: {
+                // Геометрия = тип объекта + географические координаты объекта
+                geometry: {
+                    // Тип геометрии - точка
+                    type: 'Point',
+                    // Координаты точки.
+                    coordinates: [37.738521,55.684758]
+                },
+                // Свойства
+                properties: {
+                    balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
+                }
             },
-            // Свойства
-            properties: {
-                balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
-            }
+            options: {preset: 'islands#icon', iconColor: '#0095b6'}
         },
         {
-            // Геометрия = тип объекта + географические координаты объекта
-            geometry: {
-                // Тип геометрии - точка
-                type: 'Point',
-                // Координаты точки.
-                coordinates: [37.715175,55.833436]
+            source: {
+                // Геометрия = тип объекта + географические координаты объекта
+                geometry: {
+                    // Тип геометрии - точка
+                    type: 'Point',
+                    // Координаты точки.
+                    coordinates: [37.715175,55.833436]
+                },
+                // Свойства
+                properties: {
+                    balloonContent: '<strong>серобуромалиновый</strong> цвет'
+                }
             },
-            // Свойства
-            properties: {
-                balloonContent: '<strong>серобуромалиновый</strong> цвет'
-            }
+            options: {preset: 'islands#dotIcon', iconColor: '#735184'}
         },
         {
-            // Геометрия = тип объекта + географические координаты объекта
-            geometry: {
-                // Тип геометрии - точка
-                type: 'Point',
-                // Координаты точки.
-                coordinates: [37.529789,55.687086]
+            source: {
+                // Геометрия = тип объекта + географические координаты объекта
+                geometry: {
+                    // Тип геометрии - точка
+                    type: 'Point',
+                    // Координаты точки.
+                    coordinates: [37.529789,55.687086]
+                },
+                // Свойства
+                properties: {
+                    balloonContent: 'цвет <strong>влюбленной жабы</strong>'
+                }
             },
-            // Свойства
-            properties: {
-                balloonContent: 'цвет <strong>влюбленной жабы</strong>'
-            }
+            options: {preset: 'islands#circleIcon', iconColor: '#3caa3c'}
         },
         {
             // Геометрия = тип объекта + географические координаты объекта
